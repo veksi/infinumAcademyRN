@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "extends": "@infinumjs/eslint-config-react",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src", "storybook"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".ios.tsx", ".android.tsx", ".native.js", ".json", ".ios.js", ".android.js"]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "import/prefer-default-export": 1,
+    "react/jsx-handler-names": 1,
+    "react/jsx-one-expression-per-line": 1,
+    "react/react-in-jsx-scope": 1,
+    "react/require-optimization": 1
+  }
+}
