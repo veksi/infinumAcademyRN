@@ -1,5 +1,5 @@
-import { createAppContainer, createSwitchNavigator, NavigationStackRouterConfig, NavigationRouter, NavigationProp, NavigationContainer } from 'react-navigation';
-import { createStackNavigator, NavigationStackScreenProps, NavigationStackScreenComponent } from 'react-navigation-stack';
+import { createAppContainer, createSwitchNavigator, NavigationContainer } from 'react-navigation';
+import { createStackNavigator, NavigationStackScreenComponent } from 'react-navigation-stack';
 import { Shows } from '../screens/Shows';
 import { Show } from '../screens/Show';
 import { Episode } from '../screens/Episode';
@@ -8,10 +8,13 @@ import { Comments } from '../screens/Comments';
 import { Login } from '../screens/Login';
 import { Register } from '../screens/Register';
 import { RegisterRedirect } from '../screens/RegisterRedirect';
+import { Auth } from '../screens/Auth';
 
 export enum NavigationRoutes {
-  AppStack = 'App',
-  AuthStack = 'Auth',
+  AppStack = 'AppStack',
+  PreloadStack = 'PreloadStack',
+  AuthStack = 'AuthStack',
+  Auth = 'Auth',
   Home = 'Home',
   Show = 'Show',
   Episode = 'Episode',
@@ -30,7 +33,7 @@ const AppStack: NavigationStackScreenComponent = createStackNavigator(
     AddEpisode: AddEpisode,
     Comments: Comments,
   }, {
-    initialRouteName: 'Home'
+    initialRouteName: NavigationRoutes.Home,
   }
 );
 
@@ -39,17 +42,26 @@ const AuthStack: NavigationStackScreenComponent = createStackNavigator(
     Login: Login,
     Register: Register,
     SuccsessfulRegistration: RegisterRedirect,
+  }, {
+    initialRouteName: NavigationRoutes.Login,
+  }
+);
+
+const PreloadStack: NavigationStackScreenComponent = createStackNavigator(
+  {
+    Auth: Auth,
   }
 );
 
 export const AppContainer: NavigationContainer = createAppContainer(
   createSwitchNavigator(
     {
-      App: AppStack,
-      Auth: AuthStack,
+      AppStack: AppStack,
+      AuthStack: AuthStack,
+      PreloadStack: PreloadStack,
     },
     {
-      initialRouteName: 'Auth'
+      initialRouteName: NavigationRoutes.PreloadStack,
     }
   )
 );

@@ -11,5 +11,6 @@ module.exports = ({ config }) => {
     ],
   });
   config.resolve.extensions.push('.ts', '.tsx');
+  config.resolve.alias.push({'react-native$': 'react-native-web'})
   return config;
 };
