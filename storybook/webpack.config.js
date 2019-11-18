@@ -1,5 +1,8 @@
+const path = require('path');
+
 module.exports = ({ config }) => {
   config.module.rules.push({
+    exclude: path.resolve(__dirname, '../node_modules'),
     test: /\.(ts|tsx)$/,
     use: [
       {
@@ -10,7 +13,9 @@ module.exports = ({ config }) => {
       },
     ],
   });
+
   config.resolve.extensions.push('.ts', '.tsx');
-  config.resolve.alias.push({'react-native$': 'react-native-web'})
+  config.resolve.alias.push({'react-native$': 'react-native-web'});
+
   return config;
 };

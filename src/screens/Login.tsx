@@ -42,11 +42,13 @@ export const Login: FunctionComponent<NavigationStackScreenProps> = ({
         onPress={onRegisterButtonPress}
       />
       <Input
+        error={false}
         placeholderText="E-mail"
         value={email}
         onChange={onEmailInputChange}
       />
       <Input
+        error={false}
         placeholderText="Password"
         value={password}
         onChange={onPasswordChange}

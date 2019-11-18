@@ -1,5 +1,4 @@
 {
-  "extends": "./pathEntry.json",
   "compilerOptions": {
     "experimentalDecorators": true,
     "target": "esnext",
@@ -13,7 +12,6 @@
     "isolatedModules": true,
     "strict": true,
     "moduleResolution": "node",
-    // "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

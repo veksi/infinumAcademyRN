@@ -5,3 +5,4 @@ declare module "*.svg" {
 }
 
 declare module '@emotion/native';
+declare module 'metro-config';

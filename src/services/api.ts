@@ -1,10 +1,8 @@
-import { Config } from 'react-native-config';
 import { RequestType } from '../enums/RequestType';
 import { IShow } from '../interfaces/IShow';
-import { async } from 'q';
 import { IUser } from '../interfaces/IUser';
 
-const API_URL = Config.API_URL;
+const API_URL = 'https://api.infinum.academy/api/';
 
 interface RequestOptions {
   body?: string;
